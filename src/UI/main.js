@@ -13,43 +13,59 @@ $(function() {
 	var sources = {
 
 		"Bing Maps": "http://ecn.t0.tiles.virtualearth.net/tiles/r{quad}.jpeg?g=129&mkt=en&stl=H",
-		"Bing Maps Satellite": "http://ecn.t0.tiles.virtualearth.net/tiles/a{quad}.jpeg?g=129&mkt=en&stl=H",
-		"Bing Maps Hybrid": "http://ecn.t0.tiles.virtualearth.net/tiles/h{quad}.jpeg?g=129&mkt=en&stl=H",
+		"Bing Maps 위성": "http://ecn.t0.tiles.virtualearth.net/tiles/a{quad}.jpeg?g=129&mkt=en&stl=H",
+		"Bing Maps 위성+일반": "http://ecn.t0.tiles.virtualearth.net/tiles/h{quad}.jpeg?g=129&mkt=en&stl=H",
+
+  		"MapBox 맵": "http://ecn.t0.tiles.virtualearth.net/tiles/r{quad}.jpeg?g=129&mkt=en&stl=H",
+		"MapBox 위성": "http://ecn.t0.tiles.virtualearth.net/tiles/a{quad}.jpeg?g=129&mkt=en&stl=H",
+		"MapBox 위성+일반": "http://ecn.t0.tiles.virtualearth.net/tiles/h{quad}.jpeg?g=129&mkt=en&stl=H",
 
 		"div-1B": "",
 
-		"Google Maps": "https://mt0.google.com/vt?lyrs=m&x={x}&s=&y={y}&z={z}",
-		"Google Maps Satellite": "https://mt0.google.com/vt?lyrs=s&x={x}&s=&y={y}&z={z}",
-		"Google Maps Hybrid": "https://mt0.google.com/vt?lyrs=h&x={x}&s=&y={y}&z={z}",
-		"Google Maps Terrain": "https://mt0.google.com/vt?lyrs=p&x={x}&s=&y={y}&z={z}",
+		"(?)Google Maps": "https://mt0.google.com/vt?lyrs=m&x={x}&s=&y={y}&z={z}",
+		"(?)Google Maps 위성": "https://mt0.google.com/vt?lyrs=s&x={x}&s=&y={y}&z={z}",
+		"(?)Google Maps 위성+일반": "https://mt0.google.com/vt?lyrs=h&x={x}&s=&y={y}&z={z}",
+		"(?)Google Maps 지형": "https://mt0.google.com/vt?lyrs=p&x={x}&s=&y={y}&z={z}",
 
 		"div-2": "",
 
-		"Open Street Maps": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-		"Open Cycle Maps": "http://a.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-		"Open PT Transport": "http://openptmap.org/tiles/{z}/{x}/{y}.png",
+		"(o)오픈스트리트 맵": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+		"(o)오픈사이클 맵": "http://a.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
 
 		"div-3": "",
 
-		"ESRI World Imagery": "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-		"Wikimedia Maps": "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png",
-		"NASA GIBS": "https://map1.vis.earthdata.nasa.gov/wmts-webmerc/MODIS_Terra_CorrectedReflectance_TrueColor/default/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg",
+		"(o)ESRI World Imagery": "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+		"(x)Wikimedia Maps": "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png",
+		"(o)NASA GIBS": "https://map1.vis.earthdata.nasa.gov/wmts-webmerc/MODIS_Terra_CorrectedReflectance_TrueColor/default/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg",
 
 		"div-4": "",
 
-		"Carto Light": "http://cartodb-basemaps-c.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
-		"Stamen Toner B&W": "http://a.tile.stamen.com/toner/{z}/{x}/{y}.png",
+		"(o)Carto Light": "http://cartodb-basemaps-c.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+		"(x)Stamen Toner B&W": "http://a.tile.stamen.com/toner/{z}/{x}/{y}.png",
+
+  		"(o)Stamen Water Color" : "http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.png",
+
+		"div-5": "",
+		"MapBox 맵" : "http://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+		"MapBox 위성" : "http://api.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+
+		"div-6": "",
+		"Mapnik No Labels" : "https://tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png",
+		"Hillshading" : "http://tiles.wmflabs.org/hillshading/{z}/{x}/{y}.png",
+		"Mapnik Black/White" : "https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png",
+		"Thunderforest Landscape" : "http://tile.thunderforest.com/landscape/{z}/{x}/{y}.png",
 
 	};
 
 	function initializeMap() {
 
-		mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpYXNocmFmIiwiYSI6ImNqdXl5MHV5YTAzNXI0NG51OWFuMGp4enQifQ.zpd2gZFwBTRqiapp1yci9g';
+		mapboxgl.accessToken = 'pk.eyJ1IjoibW9sYW1wIiwiYSI6ImNsZGlzNWs3YjBhaWwzdm13ZTZjY3ZmNjUifQ.Oxn6lUubX28tsjX-uMdufA';
 
 		map = new mapboxgl.Map({
 			container: 'map-view',
-			style: 'mapbox://styles/aliashraf/ck6lw9nr80lvo1ipj8zovttdx',
-			center: [-73.983652, 40.755024], 
+			//style: 'mapbox://styles/aliashraf/ck6lw9nr80lvo1ipj8zovttdx',
+			style: 'mapbox://styles/mapbox/satellite-streets-v11',
+			center: [127.02964215078869,37.491933520177874],
 			zoom: 12
 		});
 
@@ -144,7 +160,7 @@ $(function() {
 		draw.changeMode('draw_rectangle');
 
 		M.Toast.dismissAll();
-		M.toast({html: 'Click two points on the map to make a rectangle.', displayLength: 7000})
+		M.toast({html: '두 지점을 맵에서 클릭하세요', displayLength: 7000})
 	}
 
 	function initializeGridPreview() {
@@ -544,6 +560,9 @@ $(function() {
 
 				done();
 				
+				var removeIndex = requests.indexOf(request);
+				if(removeIndex >= 0) requests.splice(removeIndex, 1);
+
 				if(cancellationToken) {
 					return;
 				}
@@ -586,10 +605,13 @@ $(function() {
 	}
 
 	function logItemRaw(text) {
-
 		var logger = $('#log-view');
-		logger.val(logger.val() + '\n' + text);
-
+		var value = logger.val() + '\n' + text;
+		var maxLength = 10000;
+		if(value.length > maxLength){
+		value = value.substring(value.length - maxLength, value.length);
+		}
+		logger.val(value);
 		logger.scrollTop(logger[0].scrollHeight);
 	}
 

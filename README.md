@@ -16,7 +16,15 @@
 python server.py
 ```
 
-Then open up your web browser and navigate to `http://localhost:8080`. The output map tiles will be in the `output\{timestamp}\` directory by default.
+Then open up your web browser and navigate to `http://localhost:7000`. The output map tiles will be in the `output\{timestamp}\` directory by default.
+
+
+## 고도화
+
+ - 일부한글 및 초기맵 한국으로 지정 , center: [127.02964215078869,37.491933520177874],(코난테크놀로지)
+ - 초기개발자 소스 오류 일부 수정 
+ - mapboxgl.accessToken 필요시 더 받아서 사용할 
+ 
 
 ## License
 
