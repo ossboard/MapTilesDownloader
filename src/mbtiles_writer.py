@@ -1,4 +1,4 @@
-것import sqlite3
+import sqlite3
 import os
 from os import listdir
 from os.path import isfile, join

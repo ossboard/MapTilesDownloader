@@ -16,7 +16,7 @@
 python server.py
 ```
 
-Then open up your web browser and navigate to `http://localhost:7000`. The output map tiles will be in the `output\{timestamp}\` directory by default.
+Then open up your web browser and navigate to `http://localhost:7001`. The output map tiles will be in the `output\{timestamp}\` directory by default.
 
 
 ## 고도화
